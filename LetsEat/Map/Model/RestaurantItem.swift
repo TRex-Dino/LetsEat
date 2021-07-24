@@ -20,6 +20,18 @@ class RestaurantItem: NSObject, MKAnnotation, Decodable {
     var imageURL: String?
     var restaurantID: Int?
     
+    enum CodingKeys: String, CodingKey {
+        case name
+        case cuisines
+        case lat
+        case long
+        case address
+        case postalCode = "postal_code"
+        case state
+        case imageURL = "image_url"
+        case restaurantID = "id"
+    }
+    
     var coordinate: CLLocationCoordinate2D {
         guard let lat = lat, let long = long else {
         return CLLocationCoordinate2D()
