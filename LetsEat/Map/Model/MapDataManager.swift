@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import MapKit
 
-class MapDataMager {
+class MapDataManager: DataManager {
     fileprivate var items: [RestaurantItem] = []
     var annotations: [RestaurantItem] {
         return items
@@ -15,17 +16,17 @@ class MapDataMager {
     
     func fetch(complition: (_ annotations: [RestaurantItem]) -> Void) {
         if items.count > 0 { items.removeAll()}
-        for data in loadData() {
+        for data in load(file: "MapLocations") {
             items.append(RestaurantItem(dict: data))
         }
         complition(items)
     }
     
-    fileprivate func loadData() -> [[String: AnyObject]] {
-        guard let path = Bundle.main.path(forResource: "MapLocations", ofType: "plist"), let items = NSArray(contentsOfFile: path) else {
-            return [[:]]
+    func currentRegion(letDelta: CLLocationDegrees, longDelta: CLLocationDegrees) -> MKCoordinateRegion {
+        guard let item = items.first else {
+            return MKCoordinateRegion()
         }
-        
-        return items as! [[String: AnyObject]]
+        let span = MKCoordinateSpan(latitudeDelta: letDelta, longitudeDelta: longDelta)
+        return MKCoordinateRegion(center: item.coordinate, span: span)
     }
 }
