@@ -21,7 +21,22 @@ class RestaurantListViewController: UIViewController, UICollectionViewDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        guard let location = selectedCity?.city, let filter = selectedType else {
+            return
+        }
+        let manager = RestaurantDataManager()
         
+        manager.fetch(by: location, with: filter) { items in
+            if manager.numberOfItems() > 0 {
+                for item in items {
+                    if let itemName = item.name {
+                        print(itemName)
+                    }
+                }
+            } else {
+                print("No data")
+            }
+        }
     }
 }
 
