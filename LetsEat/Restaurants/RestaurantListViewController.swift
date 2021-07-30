@@ -11,10 +11,17 @@ class RestaurantListViewController: UIViewController, UICollectionViewDelegate {
     
     @IBOutlet var collectionView: UICollectionView!
     
+    var selectedRestaurant: RestaurantItem?
+    var selectedCity: LocationItem?
+    var selectedType: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
     }
 }
 

@@ -47,6 +47,7 @@
 		0A544E5D26A8827300EB50F8 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A544E5C26A8827300EB50F8 /* LocationViewController.swift */; };
 		0A544E6126A8852000EB50F8 /* Locations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A544E6026A8852000EB50F8 /* Locations.plist */; };
 		0A544E6326A8856000EB50F8 /* LocationDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A544E6226A8856000EB50F8 /* LocationDataManager.swift */; };
+		0ADC396726AD9CCC00A13E38 /* ExploreHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADC396626AD9CCC00A13E38 /* ExploreHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,6 +93,7 @@
 		0A544E5C26A8827300EB50F8 /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		0A544E6026A8852000EB50F8 /* Locations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Locations.plist; sourceTree = "<group>"; };
 		0A544E6226A8856000EB50F8 /* LocationDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDataManager.swift; sourceTree = "<group>"; };
+		0ADC396626AD9CCC00A13E38 /* ExploreHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -258,6 +260,7 @@
 			isa = PBXGroup;
 			children = (
 				0A544E5726A85E6200EB50F8 /* ExploreCell.swift */,
+				0ADC396626AD9CCC00A13E38 /* ExploreHeaderView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -382,6 +385,7 @@
 				0A1366D726ACABFE004918B5 /* LocationItem.swift in Sources */,
 				0A544E5326A853EF00EB50F8 /* ExploreItem.swift in Sources */,
 				0A3B5E0826AB2C6F00D66978 /* DataManager.swift in Sources */,
+				0ADC396726AD9CCC00A13E38 /* ExploreHeaderView.swift in Sources */,
 				0A3B5E0526AB289C00D66978 /* MapDataManager.swift in Sources */,
 				0A544E3026A81BD500EB50F8 /* AppDelegate.swift in Sources */,
 				0A1366D526ACA8D2004918B5 /* RestaurantDataManager.swift in Sources */,

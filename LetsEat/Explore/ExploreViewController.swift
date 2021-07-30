@@ -12,6 +12,8 @@ class ExploreViewController: UIViewController, UICollectionViewDelegate {
     @IBOutlet weak var collectionView: UICollectionView!
     
     let manager = ExploreDataManager()
+    var selectedCity: LocationItem?
+    var headerView: ExploreHeaderView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,13 +28,37 @@ private extension ExploreViewController {
         manager.fetch()
     }
     
-    @IBAction func unwindLocationCancel(segue: UIStoryboardSegue) {}
+    func showLocationList(segue: UIStoryboardSegue) {
+        guard let navController = segue.destination as? UINavigationController, let viewController = navController.topViewController as? LocationViewController else {
+            return
+        }
+        
+        guard let city = selectedCity else {
+            return
+        }
+        
+        viewController.selectedCity = city
+    }
+    
+    @IBAction func unwindLocationCancel(segue: UIStoryboardSegue) {
+        
+    }
+    
+    @IBAction func unwindLocationDone(segue: UIStoryboardSegue) {
+        if let viewController = segue.source as? LocationViewController {
+            selectedCity = viewController.selectedCity
+            if let location = selectedCity {
+                headerView.lblLocation.text = location.full
+            }
+        }
+    }
 }
 
 //MARk: UICollectionViewDataSource
 extension ExploreViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "header", for: indexPath)
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "header", for: indexPath)
+        headerView = header as? ExploreHeaderView
         return headerView
     }
     

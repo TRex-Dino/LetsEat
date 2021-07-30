@@ -16,7 +16,6 @@ extension DataManager {
         guard let path = Bundle.main.path(forResource: name, ofType: "plist"), let items = NSArray(contentsOfFile: path) else {
             return [[:]]
         }
-        
         return items as! [[String: AnyObject]]
     }
 }
